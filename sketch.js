@@ -9,7 +9,7 @@ function setup() {
 function draw() {
 	background(255); // redraw background every frame
 	noStroke(); // no outline on the objects
-	console.log(scaleCatArm(angle));
+	//console.log(scaleCatArm(angle));
 	cat_hand.display();
 }
 
@@ -24,7 +24,8 @@ function MovingCatHand(){
 	}
 }
 
-function scaleCatArm(angle_constant){
+function scaleCatArm(angle_in_degrees){
+	var angle_constant = angle_in_degrees * Math.PI/180;
 	var scaledAngle = angle_constant * ((window.innerWidth - mouseX)/1000);
-	return (window.innerHeight / Math.tan(scaledAngle));
+	return ((window.innerHeight/5) / Math.tan(scaledAngle));
 }
